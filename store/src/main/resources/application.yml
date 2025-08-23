@@ -1,13 +1,13 @@
 server:
   servlet:
-    context-path: /storefront
+    context-path: /store
   port: 8081
 spring:
   application:
-    name: storefront
+    name: store
 
   datasource:
-    url: jdbc:h2:mem:storefront
+    url: jdbc:h2:mem:store
     driverClassName: org.h2.Driver
     username: sa
     password:
@@ -31,4 +31,4 @@ spring:
     queue:
       product-change-availability: product.change.availability.queue
 warehouse:
-  base-path: http://warehouseapp:8080/warehouse
+  base-path: http://localhost:8080/warehouseapp:8080/warehouse

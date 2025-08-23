@@ -1,0 +1,20 @@
+services:
+  storefrontapp:
+    build:
+      context: .
+    command: bash start-dev.sh
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8081:8081"
+      - "5006:5005"
+    volumes:
+      - .:/store:z
+    networks:
+      - Microservices
+networks:
+  Microservices:
+    name: Microservices
+    external: true
+volumes:
+  db:
