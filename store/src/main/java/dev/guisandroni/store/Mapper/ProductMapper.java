@@ -20,5 +20,5 @@ public interface ProductMapper {
     ProductEntity toEntity(final ProductSaveRequest request);
     ProductSaveResponse toResponse (final ProductEntity entity);
     List<ProductAvailableResponse> toResponse(final List<ProductEntity> entities);
-    ProductDetailResponse toResonse(final ProductInfoDto dto);
+    ProductDetailResponse toResponse(final ProductInfoDto dto);
 }
