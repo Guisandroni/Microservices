@@ -13,7 +13,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-public class Product {
+public class ProductEntity {
 
 
     @Id
@@ -24,7 +24,7 @@ public class Product {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
+        ProductEntity product = (ProductEntity) o;
         return Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(active, product.active);
     }
 
