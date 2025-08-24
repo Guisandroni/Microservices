@@ -1,0 +1,2 @@
+maven clean
+maven bootRun
