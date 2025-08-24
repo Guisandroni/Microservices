@@ -1,5 +1,5 @@
 services:
-  storefrontapp:
+  storeapp:
     build:
       context: .
     command: bash start-dev.sh

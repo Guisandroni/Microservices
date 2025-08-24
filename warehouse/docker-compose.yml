@@ -1,5 +1,5 @@
 services:
-  storefrontapp:
+  warehouseapp:
     build:
       context: .
     command: bash start-dev.sh
@@ -9,7 +9,7 @@ services:
       - "8081:8081"
       - "5006:5005"
     volumes:
-      - .:/store:z
+      - .:/warehouse:z
     networks:
       - Microservices
 networks:
