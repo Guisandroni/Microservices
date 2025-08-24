@@ -1,4 +1,4 @@
-package dev.guisandroni.store.Config;
+package dev.guisandroni.warehouse.Config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -14,7 +14,7 @@ public class OpenAPISwagger {
     OpenAPI customOpenAPI(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("Api Store Microservice")
+                        .title("Api warehouse Microservice")
                         .version("1.0")
                         .description("Documentação API"));
     }

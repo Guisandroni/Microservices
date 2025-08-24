@@ -1,4 +1,4 @@
-package dev.guisandroni.store.Config;
+package dev.guisandroni.warehouse.Config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

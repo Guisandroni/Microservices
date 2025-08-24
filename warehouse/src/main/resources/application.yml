@@ -30,5 +30,10 @@ spring:
     virtual-host: /
     queue:
       product-change-availability: product.change.availability.queue
-warehouse:
-  base-path: http://localhost:8080/warehouseapp:8080/warehouse
+    exchange:
+      product-change-availability: product.change.availability.exchange
+    routing-key:
+      product-change-availability: product.change.availability.routing.key
+
+store:
+  base-path: http://localhost:8080/storeapp:8080/store

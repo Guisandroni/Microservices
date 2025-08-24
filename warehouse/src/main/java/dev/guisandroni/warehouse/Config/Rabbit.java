@@ -1,4 +1,4 @@
-package dev.guisandroni.store.Config;
+package dev.guisandroni.warehouse.Config;
 
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -22,4 +22,14 @@ public class Rabbit {
         rabbitTemplate.setMessageConverter(converter);
         return  rabbitTemplate;
     } // config template para trabalhar com mensagens
+
+    @Bean
+    Queue queue(@Value("${spring.rabbitmq.queue.product-change-availability") final String name){
+        return new Queue(name, true);
+    }
+
+    @Bean
+    DirectExchange exchange(@Value("${spring.rabbitmq.queue.product-change-availability") final String name){
+        return new DirectExchange(name);
+    }
 }
