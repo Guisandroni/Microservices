@@ -28,6 +28,12 @@ public class StockEntity {
 
     private BigDecimal soldPrice;
 
+
+    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn (name = "product_id", nullable = false)
+    private ProductEntity product;
+
     public void decAmount (){
         this.amount -= 1;
         if(this.amount == 0){
@@ -35,11 +41,9 @@ public class StockEntity {
         }
     }
 
-    @ToString.Exclude
-    @ManyToOne
-    @JoinColumn (name = "product_id", nullable = false)
-    private ProductEntity product;
-
+    public boolean isNotAvailable(){
+        return this.status == StockStatus.UNAVAILABLE;
+    }
 
     @PrePersist
     private void prePersist(){

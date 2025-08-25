@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 @Entity
@@ -29,9 +30,18 @@ public class ProductEntity {
         stock.decAmount();
         return stock;
     }
+
+
     @PrePersist
     private void prePersist(){
         this.id= UUID.randomUUID();
+    }
+
+    public BigDecimal getPrice(){
+     return   this.stocks.stream().filter(s -> s.getStatus().equals(StockStatus.AVAILABLE))
+                .min(Comparator.comparing(StockEntity::getSoldPrice))
+                .orElseThrow()
+        .getSoldPrice();
     }
 
     @Override

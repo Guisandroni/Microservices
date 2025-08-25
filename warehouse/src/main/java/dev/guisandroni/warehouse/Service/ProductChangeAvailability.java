@@ -1,4 +1,8 @@
 package dev.guisandroni.warehouse.Service;
 
-public class ProductChangeAvailability {
+import dev.guisandroni.warehouse.Dto.StockStatusMessage;
+
+public interface ProductChangeAvailability {
+
+    void notifyStatusChange(final StockStatusMessage message);
 }

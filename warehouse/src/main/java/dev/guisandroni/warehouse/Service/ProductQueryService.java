@@ -1,4 +1,9 @@
 package dev.guisandroni.warehouse.Service;
 
-public class ProductQueryService {
+import dev.guisandroni.warehouse.Entity.ProductEntity;
+
+import java.util.UUID;
+
+public interface ProductQueryService {
+    ProductEntity findById(final UUID id);
 }

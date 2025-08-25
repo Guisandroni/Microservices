@@ -1,4 +1,9 @@
 package dev.guisandroni.warehouse.Controller.Request;
 
-public class ProductSaveRequest {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record ProductSaveRequest (
+        @JsonProperty("name")
+        String name
+) {
 }

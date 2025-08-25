@@ -11,7 +11,7 @@ public class WarehouseClient {
     //passar o basepath para o client do warehouse
     //basepath dentro do docker
     @Bean
-    RestClient storefrontClient(@Value("${warehouse.base-path}") final String basePath){
+    RestClient storeClient(@Value("${warehouse.base-path}") final String basePath){
         return RestClient.create(basePath);
     }
 }
