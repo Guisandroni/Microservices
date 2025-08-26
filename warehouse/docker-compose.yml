@@ -9,7 +9,7 @@ services:
       - "8081:8081"
       - "5006:5005"
     volumes:
-      - .:/warehouse:z
+      - .:/warehouse:w
     networks:
       - Microservices
     depends_on:
@@ -30,5 +30,3 @@ networks:
   Microservices:
     name: Microservices
     external: true
-volumes:
-  db:

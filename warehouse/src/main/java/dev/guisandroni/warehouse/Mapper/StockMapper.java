@@ -6,7 +6,7 @@ import dev.guisandroni.warehouse.Entity.StockEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "SPRING")
+@Mapper(componentModel = "spring")
 public interface StockMapper {
 
     @Mapping(target = "id", ignore = true)

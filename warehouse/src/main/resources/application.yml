@@ -1,7 +1,7 @@
 server:
   servlet:
     context-path: /warehouse
-  port: 8081
+  port: 8080
 spring:
   application:
     name: warehouse
@@ -36,4 +36,4 @@ spring:
       product-change-availability: product.change.availability.routing.key
 
 store:
-  base-path: http://localhost:8080/storeapp:8080/store
+  base-path: http://storeapp:8081/store

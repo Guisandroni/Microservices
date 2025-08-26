@@ -33,10 +33,10 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
-    @Override
-    public ProductEntity findById(UUID id) {
-        return productRepository.findById(id).orElseThrow();
-    }
+//    @Override
+//    public ProductEntity findById(UUID id) {
+//        return productRepository.findById(id).orElseThrow();
+//    }
 
     private void saveStore(ProductStoreSaveDto dto) {
         storeClient.post()
@@ -48,7 +48,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void purchase(UUID id) {
         var entity = productService.findById(id);
-        var stock = entity.decStock();
+        var stock = entity.decreaseStock();
         productRepository.save(entity);
         if (stock.isNotAvailable())
             stockService.changeStatus(stock.getId(), stock.getStatus());

@@ -10,10 +10,10 @@ import dev.guisandroni.warehouse.Entity.StockEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "SPRING")
+@Mapper(componentModel = "spring")
 public interface  ProductMapper {
-    @Mapping(target = "id", ignore = true)
-    @Mapping(target = "stocks" , ignore = true)
+  //  @Mapping(target = "id", ignore = true)
+    //@Mapping(target = "stocks" , ignore = true)
   ProductEntity toEntity(final ProductSaveRequest request);
 
     ProductSaveResponse toResponse(final ProductEntity entity);

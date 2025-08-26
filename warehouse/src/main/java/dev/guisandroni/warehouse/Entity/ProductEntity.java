@@ -22,27 +22,44 @@ public class ProductEntity {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<StockEntity> stocks = new HashSet<>();
 
-
-    public StockEntity decStock(){
-        var stock = this.stocks.stream().filter(s -> s.getStatus().equals(StockStatus.AVAILABLE))
-                .min(Comparator.comparing(StockEntity::getSoldPrice))
-                .orElseThrow();
+    public StockEntity decreaseStock() {
+        var stock = getStockWithMinSellPrice();
         stock.decAmount();
         return stock;
     }
 
+    private StockEntity getStockWithMinSellPrice() {
+        return this.stocks.stream()
+                .filter(stockEntity -> stockEntity.getStatus() == StockStatus.AVAILABLE)
+                .min(Comparator.comparing(StockEntity::getSoldPrice))
+                .orElseThrow();
+    }
+
+    public BigDecimal getPrice() {
+        return getStockWithMinSellPrice().getSoldPrice();
+    }
+
+//    public StockEntity decStock(){
+//        var stock = this.stocks.stream().filter(s -> s.getStatus().equals(StockStatus.AVAILABLE))
+//                .min(Comparator.comparing(StockEntity::getSoldPrice))
+//                .orElseThrow();
+//        stock.decAmount();
+//        return stock;
+//    }
+//
+//    public BigDecimal getPrice(){
+//        return   this.stocks.stream().filter(s -> s.getStatus().equals(StockStatus.AVAILABLE))
+//                .min(Comparator.comparing(StockEntity::getSoldPrice))
+//                .orElseThrow()
+//                .getSoldPrice();
+//    }
 
     @PrePersist
     private void prePersist(){
         this.id= UUID.randomUUID();
     }
 
-    public BigDecimal getPrice(){
-     return   this.stocks.stream().filter(s -> s.getStatus().equals(StockStatus.AVAILABLE))
-                .min(Comparator.comparing(StockEntity::getSoldPrice))
-                .orElseThrow()
-        .getSoldPrice();
-    }
+
 
     @Override
     public boolean equals(Object o) {
